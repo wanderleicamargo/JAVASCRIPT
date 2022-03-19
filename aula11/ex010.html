@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #txtvel{
+            width: 30px;
+        }
+        #afe{
+        }
+        #vel{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SISTEMA DE MULTAS</h1>
+    
+    Velocidade do carro: <input type="numer" name="txtvel" id="txtvel"> Km/h
+    <input type="button" value="Verificar" onclick="clic()" id="vel">
+    <div id="afe"></div>
+    <script>
+        function clic(){
+            cx=document.querySelector('#afe')
+            var vel=document.querySelector('#txtvel')
+            var v=Number(vel.value)
+            cx.style.width='fit-content'
+            cx.style.border='solid black'
+            cx.style.margin='auto'
+
+            if(v>40){
+                cx.style.color='white'
+                cx.innerHTML=`<p> Sua velocidade é de <strong>${v}</strong> Km/h.</p>`
+                cx.innerHTML+=`<p> Você ultrapassou <strong>${v-40}</strong> Km da velocidade permiitada</p>`
+                cx.style.backgroundColor='red'
+            }
+                else{
+                    cx.innerHTML='DENTRO DA VELOCIDADE PERMITIDA' 
+                    cx.style.backgroundColor='blue'        
+                }
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOMANDO NÚMEROS</title>
+    <style>
+        #caixa{
+            margin: auto;
+            width: fit-content;
+            border: 5px solid black;
+            text-align: center
+        }
+        h1{
+            margin: 10px;
+        }
+        #res{
+            background-color: cornflowerblue;
+            width: 100px;
+            height: 100px;
+            border: 2px solid darkblue;
+            text-align: center;
+            line-height: 100px;
+            margin: auto;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        #txtn1, #txtn2{
+            width: 60px;
+            text-align: center;
+        }
+        #bt{
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    
+    <section id="caixa">
+        <h1>SOMANDO VALORES</h1>
+        <input type="text" name="txtn1" id="txtn1"> +
+        <input type="text" name="txtn2" id="txtn2" >
+        <input id='bt' type="button" value="somar" onclick="soma()">
+        <div id="res">Resultado</div>
+        <script>
+            function soma(){
+                var tn1= document.querySelector('#txtn1')
+                var tn2= document.querySelector('#txtn2')
+                var res= document.querySelector('#res')
+                var n1 = Number(tn1.value)
+                var n2 = Number(tn2.value)
+                var s = n1+n2
+                res.innerHTML=s
+                if(s>5){
+                    res.style.backgroundColor='red'
+                    res.style.border='red'
+                }
+                    else{
+                        res.style.backgroundColor='green'
+                        res.style.border='green'
+                }
+            }
+            
+        </script>
+    </section>
+    
+</body>
+</html>
