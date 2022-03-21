@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voto</title>
+    <style>
+        *{
+            padding: 0px;
+            text-align: center;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1{
+            font-size: 47px;
+            text-shadow: 0px 0px 10px white;
+        }
+        h2{
+            text-transform: uppercase;
+            word-spacing:15px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 0px black;
+        }
+        main{
+            border: 2px solid black;
+            margin: auto;
+            width: fit-content;
+            padding: 10px;
+            border-radius: 8px;
+            background-image: linear-gradient(45deg, rgb(43, 167, 184), purple);
+            
+        }
+        #id{
+            border: 2px solid black;
+            width: 50px;
+            border-radius: 5px;
+            height: 26px;
+        }
+        #ver{
+            margin-bottom: 30px;
+            padding: 5px;
+            border: 2px solid black;
+            border-radius: 5px;
+            height: 30px;
+        }
+        #aria{
+
+        }
+        
+    </style>
+</head>
+<body>
+    <main>
+        
+        <h1>OBRIGAÇÕES ELEITORAIS</h1>
+        <h2>Entre com a idade do cidadão</h2>
+        <input type="number" id="id">
+        <input type="button" value="VERIFICAR" id="ver">
+        <div id="aria"></div>
+        <script>
+            c=document.querySelector('#aria')
+            b=document.querySelector('#ver')
+            res=document.querySelector('#id')
+            b.addEventListener('click', clicou)
+            function clicou(){
+                ida=Number(res.value)
+                c.style.border='2px solid black'
+                c.style.width='fit-content'
+                c.style.margin='auto'
+                c.style.padding='5px'
+                c.style.borderRadius='5px'
+                c.style.backgroundColor='lightgreen'
+                c.style.color='black'
+                c.style.lineHeight='0px'
+                c.style.fontWeight='bold'
+                if(ida==0){c.innerHTML=`<p>POR FAVOR, PREENCHA O CAMPO COM ALGUM DIGITO</p>`
+                c.style.backgroundColor='red'
+                c.style.fontWeight='bold'
+                c.style.color='white'}else{
+                    if(ida<16){ c.innerHTML=`<p>Menores de 16 anos não podem votar</p>`
+                    c.style.backgroundColor='orange'
+                    c.style.color='black'
+                    }else {
+                        if(ida>=16&&ida<18){ c.innerHTML=`<p>Para cidadãos entre 16 e 18 anos o voto é opcional</p>`
+                            c.style.backgroundColor='yellow'}else{
+                            if(ida>=18&&ida<65){ c.innerHTML=`<p>Para cidadãos maiores de 18 e menores do que 65 anos o voto é obrigatório</p>`}else{ 
+                                c.innerHTML=`<p>Cidadãos acima de 65 anos o voto é opcional.</p>`}
+                            
+                            }
+                        }
+                    }
+                }
+        
+        </script>
+    </main>   
+</body>
+</html>
